@@ -12,14 +12,15 @@
     "meme",
     "api",
     "images",
-    "promise"
+    "promise",
+    "meme-generator"
   ],
   "author": "Tomer Aberbach <tomeraberbach@gmail.com> (http://tomeraberbach.com)",
   "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/TomerADev/imgflip/blob/master/LICENSE.md"
+      "url": "https://github.com/TomerADev/imgflip/blob/master/LICENSE"
     }
   ],
   "dependencies": {
