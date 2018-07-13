@@ -1,4 +1,4 @@
-const imgflip = require('./index')
+const imgflip = require('imgflip')
 
 // https://imgflip.com/signup
 imgflip.credentials({

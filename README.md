@@ -7,7 +7,7 @@ A module for the interacting with the Imgflip API..
 
 ## Example
 ```javascript
-const imgflip = require('./index')
+const imgflip = require('imgflip')
 
 // https://imgflip.com/signup
 imgflip.credentials({
