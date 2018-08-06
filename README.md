@@ -2,6 +2,7 @@
 A module for the interacting with the Imgflip API..
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTomerADev%2Fimgflip.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTomerADev%2Fimgflip?ref=badge_shield)
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -26,3 +27,7 @@ imgflip.memes().then(memes => {
   return imgflip.image('meme.jpg', id, 'MEME', 'CITY')
 })
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTomerADev%2Fimgflip.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FTomerADev%2Fimgflip?ref=badge_large)
