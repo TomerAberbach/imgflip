@@ -1,6 +1,6 @@
 {
   "name": "imgflip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Tomer Aberbach <tomeraberbach@gmail.com> (https://tomeraberba.ch)",
   "description": "A module for the interacting with the Imgflip API.",
   "keywords": [
