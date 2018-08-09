@@ -1,0 +1,6 @@
+.gitignore
+.npmignore
+.idea/
+node_modules/
+test/
+.travis.yml

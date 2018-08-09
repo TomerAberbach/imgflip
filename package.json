@@ -1,12 +1,8 @@
 {
   "name": "imgflip",
   "version": "1.0.0",
+  "author": "Tomer Aberbach <tomeraberbach@gmail.com> (https://tomeraberba.ch)",
   "description": "A module for the interacting with the Imgflip API.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/TomerADev/imgflip.git"
-  },
   "keywords": [
     "imgflip",
     "meme",
@@ -15,16 +11,32 @@
     "promise",
     "meme-generator"
   ],
-  "author": "Tomer Aberbach <tomeraberbach@gmail.com> (http://tomeraberbach.com)",
+  "homepage": "https://github.com/TomerADev/imgflip",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomerADev/imgflip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TomerADev/imgflip/issues"
+  },
   "license": "MIT",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/TomerADev/imgflip/blob/master/LICENSE"
-    }
+  "files": [
+    "index.js"
   ],
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && standard-markdown README.md",
+    "publish:git": "git add . && git push --follow-tags",
+    "publish:patch": "npm test && npm version patch -m \"%s\" && npm publish && npm run publish:git",
+    "publish:minor": "npm test && npm version minor -m \"%s\" && npm publish && npm run publish:git",
+    "publish:major": "npm test && npm version major -m \"%s\" && npm publish && npm run publish:git"
+  },
   "dependencies": {
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "standard": "*",
+    "standard-markdown": "*"
   }
 }

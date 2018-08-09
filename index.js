@@ -13,7 +13,9 @@ const imgflip = (path, method, params) =>
     json: true
   }).then(res => res['success'] ? res['data'] : Promise.reject(new Error(res['error_message'])))
 
-module.exports.credentials = o => ['username', 'password'].forEach(key => credentials[key] = o[key])
+module.exports.credentials = o => ['username', 'password'].forEach(key => {
+  credentials[key] = o[key]
+})
 module.exports.memes = () => imgflip('get_memes', 'get').then(res => res['memes'])
 module.exports.meme = (id, ...captions) =>
   imgflip('caption_image', 'post', {
