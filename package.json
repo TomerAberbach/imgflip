@@ -11,13 +11,13 @@
     "promise",
     "meme-generator"
   ],
-  "homepage": "https://github.com/TomerADev/imgflip",
+  "homepage": "https://github.com/TomerAberbach/imgflip",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TomerADev/imgflip.git"
+    "url": "git+https://github.com/TomerAberbach/imgflip.git"
   },
   "bugs": {
-    "url": "https://github.com/TomerADev/imgflip/issues"
+    "url": "https://github.com/TomerAberbach/imgflip/issues"
   },
   "license": "MIT",
   "files": [
