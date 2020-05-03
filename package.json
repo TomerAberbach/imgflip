@@ -1,8 +1,8 @@
 {
   "name": "imgflip",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "author": "Tomer Aberbach <tomeraberbach@gmail.com> (https://tomeraberba.ch)",
-  "description": "A module for the interacting with the Imgflip API.",
+  "description": "The memiest Imgflip API wrapper around!",
   "keywords": [
     "imgflip",
     "meme",
@@ -12,31 +12,41 @@
     "meme-generator"
   ],
   "homepage": "https://github.com/TomerAberbach/imgflip",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TomerAberbach/imgflip.git"
-  },
+  "repository": "TomerAberbach/imgflip",
   "bugs": {
     "url": "https://github.com/TomerAberbach/imgflip/issues"
   },
   "license": "MIT",
+  "main": "lib/imgflip.js",
+  "module": "lib/imgflip.mjs",
   "files": [
-    "index.js"
+    "lib"
   ],
-  "main": "index.js",
   "scripts": {
-    "test": "standard && standard-markdown README.md",
-    "publish:git": "git add . && git push --follow-tags",
-    "publish:patch": "npm test && npm version patch -m \"%s\" && npm publish && npm run publish:git",
-    "publish:minor": "npm test && npm version minor -m \"%s\" && npm publish && npm run publish:git",
-    "publish:major": "npm test && npm version major -m \"%s\" && npm publish && npm run publish:git"
+    "lint:eslint:base": "eslint -c ./eslint.config.js --cache --ext js --ignore-path .gitignore",
+    "lint:eslint": "pnpm run lint:eslint:base -- --fix .",
+    "lint:prettier:base": "prettier --loglevel silent",
+    "lint:prettier": "pnpm run lint:prettier:base -- --write .",
+    "lint": "run-s lint:*",
+    "build:main": "cross-env BABEL_ENV=main babel -o lib/imgflip.js index.js",
+    "build:module": "cross-env BABEL_ENV=module babel -o lib/imgflip.mjs index.js",
+    "build": "run-p build:*"
   },
   "dependencies": {
-    "request": "^2.87.0",
-    "request-promise-native": "^1.0.5"
+    "got": "^11.1.0"
   },
   "devDependencies": {
-    "standard": "*",
-    "standard-markdown": "*"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "babel-eslint": "10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-prettier": "3.1.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "2.0.5",
+    "regenerator-runtime": "^0.13.5"
   }
 }

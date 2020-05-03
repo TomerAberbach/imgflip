@@ -1,28 +1,63 @@
-const request = require('request-promise-native')
-const fs = require('fs')
+import stream from 'stream'
+import fs from 'fs'
+import { promisify } from 'util'
+import got from 'got'
 
-const credentials = {
-  username: undefined,
-  password: undefined
+const pipeline = promisify(stream.pipeline)
+
+class Imgflip {
+  constructor({ username, password }) {
+    this.username = username
+    this.password = password
+  }
+
+  // https://api.imgflip.com
+  async request(path, options) {
+    const response = await got(path, {
+      prefixUrl: `https://api.imgflip.com`,
+      ...options
+    }).json()
+
+    if (response.success === true) {
+      return response.data
+    }
+
+    throw new Error(response.error_message)
+  }
+
+  async memes() {
+    return (await this.request(`get_memes`)).memes
+  }
+
+  async meme(id, { captions, font, maxFontSize, path }) {
+    const searchParams = {
+      template_id: id,
+      username: this.username,
+      password: this.password,
+      ...Object.assign(
+        ...captions.map((caption, i) => ({ [`boxes[${i}][text]`]: caption }))
+      )
+    }
+
+    if (font != null) {
+      searchParams.font = font
+    }
+
+    if (maxFontSize != null) {
+      searchParams.max_font_size = maxFontSize
+    }
+
+    const { url } = await this.request(`caption_image`, {
+      method: `POST`,
+      searchParams
+    })
+
+    if (path != null) {
+      await pipeline(got.stream(url), fs.createWriteStream(path))
+    }
+
+    return url
+  }
 }
 
-const imgflip = (path, method, params) =>
-  request(`https://api.imgflip.com/${path}`, {
-    method: method,
-    qs: params,
-    json: true
-  }).then(res => res['success'] ? res['data'] : Promise.reject(new Error(res['error_message'])))
-
-module.exports.credentials = o => ['username', 'password'].forEach(key => {
-  credentials[key] = o[key]
-})
-module.exports.memes = () => imgflip('get_memes', 'get').then(res => res['memes'])
-module.exports.meme = (id, ...captions) =>
-  imgflip('caption_image', 'post', {
-    template_id: id,
-    username: credentials.username,
-    password: credentials.password,
-    boxes: captions.map(caption => ({text: caption}))
-  }).then(res => res['url'])
-module.exports.image = (path, id, ...captions) =>
-  module.exports.meme(id, ...captions).then(url => request.get(url).pipe(fs.createWriteStream(path)))
+export default Imgflip
