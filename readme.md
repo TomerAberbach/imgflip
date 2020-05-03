@@ -39,6 +39,8 @@ const imgflip = new Imgflip({
 })()
 ```
 
+![](https://raw.githubusercontent.com/TomerAberbach/imgflip/master/pigeon.png)
+
 ## API
 
 ### `new Imgflip(options)`
