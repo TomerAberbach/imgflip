@@ -39,7 +39,7 @@ const imgflip = new Imgflip({
 })()
 ```
 
-![](https://raw.githubusercontent.com/TomerAberbach/imgflip/master/pigeon.png)
+![](https://raw.githubusercontent.com/TomerAberbach/imgflip/main/pigeon.png)
 
 ## API
 
@@ -114,4 +114,4 @@ An optional path to download the captioned image to in addition to returning the
 
 ## License
 
-[MIT](https://github.com/TomerAberbach/imgflip/blob/master/license) © [Tomer Aberbach](https://github.com/TomerAberbach)
+[MIT](https://github.com/TomerAberbach/imgflip/blob/main/license) © [Tomer Aberbach](https://github.com/TomerAberbach)
