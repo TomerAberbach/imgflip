@@ -6,9 +6,6 @@
   <a href="https://npmjs.org/package/imgflip">
     <img src="https://badgen.now.sh/npm/v/imgflip" alt="version" />
   </a>
-  <a href="https://github.com/TomerAberbach/imgflip/actions">
-    <img src="https://github.com/TomerAberbach/imgflip/workflows/CI/badge.svg" alt="CI" />
-  </a>
   <a href="https://bundlephobia.com/result?p=imgflip">
     <img src="https://badgen.net/bundlephobia/minzip/imgflip" alt="minzip size" />
   </a>
