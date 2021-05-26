@@ -1,4 +1,4 @@
-import Imgflip from './index'
+import Imgflip from './src/index.js'
 
 const imgflip = new Imgflip({
   username: process.env.IMGFLIP_USERNAME,

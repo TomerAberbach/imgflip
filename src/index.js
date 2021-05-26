@@ -12,6 +12,7 @@ class Imgflip {
   }
 
   // https://api.imgflip.com
+  // eslint-disable-next-line class-methods-use-this
   async request(path, options) {
     const response = await got(path, {
       prefixUrl: `https://api.imgflip.com`,
@@ -31,6 +32,7 @@ class Imgflip {
 
   async meme(id, { captions, font, maxFontSize, path }) {
     const searchParams = {
+      // eslint-disable-next-line camelcase
       template_id: id,
       username: this.username,
       password: this.password,
@@ -44,6 +46,7 @@ class Imgflip {
     }
 
     if (maxFontSize != null) {
+      // eslint-disable-next-line camelcase
       searchParams.max_font_size = maxFontSize
     }
 

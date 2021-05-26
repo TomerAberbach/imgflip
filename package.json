@@ -1,7 +1,11 @@
 {
   "name": "imgflip",
   "version": "2.0.0",
-  "author": "Tomer Aberbach <tomeraberbach@gmail.com> (https://tomeraberba.ch)",
+  "author": {
+    "name": "Tomer Aberbach",
+    "email": "tomeraberbach@gmail.com",
+    "url": "https://tomeraberba.ch"
+  },
   "description": "The memiest Imgflip API wrapper around!",
   "keywords": [
     "imgflip",
@@ -17,36 +21,56 @@
     "url": "https://github.com/TomerAberbach/imgflip/issues"
   },
   "license": "MIT",
-  "main": "lib/imgflip.js",
-  "module": "lib/imgflip.mjs",
   "files": [
-    "lib"
+    "src"
   ],
+  "type": "module",
+  "engines": {
+    "node": ">= 12.17"
+  },
+  "exports": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
-    "lint:eslint:base": "eslint -c ./eslint.config.js --cache --ext js --ignore-path .gitignore",
-    "lint:eslint": "pnpm run lint:eslint:base -- --fix .",
-    "lint:prettier:base": "prettier --loglevel silent",
-    "lint:prettier": "pnpm run lint:prettier:base -- --write .",
-    "lint": "run-s lint:*",
-    "build:main": "cross-env BABEL_ENV=main babel -o lib/imgflip.js index.js",
-    "build:module": "cross-env BABEL_ENV=module babel -o lib/imgflip.mjs index.js",
-    "build": "run-p build:*"
+    "prepare": "pnpx --no-install simple-git-hooks",
+    "lint:prettier:base": "prettier --loglevel silent --ignore-path .gitignore",
+    "lint:prettier": "run-s \"lint:prettier:base -- --write .\"",
+    "lint:eslint:base": "eslint --cache --ext js --ignore-path .gitignore",
+    "lint:eslint": "run-s \"lint:eslint:base -- --fix .\"",
+    "lint": "run-s lint:*"
+  },
+  "prettier": "@tomer/prettier-config",
+  "eslintConfig": {
+    "extends": "@tomer"
+  },
+  "lint-staged": {
+    "*.js": [
+      "run-s \"lint:prettier:base -- --write {@}\" --",
+      "run-s \"lint:eslint:base -- --fix {@}\" --"
+    ],
+    "*.ts": "run-s \"lint:prettier:base -- --write {@}\" --",
+    "*.{json,yml,md}": "run-s \"lint:prettier:base -- --write {@}\" --"
+  },
+  "commitlint": {
+    "extends": "@commitlint/config-conventional"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpx --no-install lint-staged",
+    "commit-msg": "pnpx --no-install commitlint -e"
   },
   "dependencies": {
-    "got": "^11.1.0"
+    "got": "11.8.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.6",
-    "babel-eslint": "10.1.0",
-    "cross-env": "^7.0.2",
-    "eslint": "6.8.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-prettier": "3.1.3",
-    "npm-run-all": "^4.1.5",
-    "prettier": "2.0.5",
-    "regenerator-runtime": "^0.13.5"
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
+    "@tomer/eslint-config": "0.1.1",
+    "@tomer/prettier-config": "0.1.0",
+    "eslint": "7.27.0",
+    "lint-staged": "11.0.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.3.0",
+    "simple-git-hooks": "2.4.1",
+    "typescript": "4.3.2"
   }
 }

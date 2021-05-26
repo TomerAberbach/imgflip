@@ -1,8 +1,22 @@
-# Imgflip
+<h1 align="center">
+  imgflip
+</h1>
 
-[![NPM version](https://img.shields.io/npm/v/imgflip.svg)](https://www.npmjs.com/package/imgflip)
+<div align="center">
+  <a href="https://npmjs.org/package/imgflip">
+    <img src="https://badgen.now.sh/npm/v/imgflip" alt="version" />
+  </a>
+  <a href="https://github.com/TomerAberbach/imgflip/actions">
+    <img src="https://github.com/TomerAberbach/imgflip/workflows/CI/badge.svg" alt="CI" />
+  </a>
+  <a href="https://bundlephobia.com/result?p=imgflip">
+    <img src="https://badgen.net/bundlephobia/minzip/imgflip" alt="minzip size" />
+  </a>
+</div>
 
-> The memiest Imgflip API wrapper around!
+<div align="center">
+  The memiest Imgflip API wrapper around!
+</div>
 
 ## Install
 
@@ -21,22 +35,20 @@ const imgflip = new Imgflip({
   password: 'YOUR_PASSWORD'
 })
 
-;(async () => {
-  // https://api.imgflip.com/get_memes
-  // Get top 100 popular meme formats
-  const memes = await imgflip.memes()
-  console.log(memes)
+// https://api.imgflip.com/get_memes
+// Get top 100 popular meme formats
+const memes = await imgflip.memes()
+console.log(memes)
 
-  // Caption and download a great meme!
-  await imgflip.meme(`100777631`, {
-    captions: [
-      `PROGRAMMERS`,
-      `THIS PACKAGE`,
-      `IS THIS THE GREATEST PACKAGE EVER?`
-    ],
-    path: `pigeon.png`
-  })
-})()
+// Caption and download a great meme!
+await imgflip.meme(`100777631`, {
+  captions: [
+    `PROGRAMMERS`,
+    `THIS PACKAGE`,
+    `IS THIS THE GREATEST PACKAGE EVER?`
+  ],
+  path: `pigeon.png`
+})
 ```
 
 ![](https://raw.githubusercontent.com/TomerAberbach/imgflip/main/pigeon.png)
@@ -69,7 +81,8 @@ Your Imgflip password.
 
 #### `memes()`
 
-Returns a `Promise<object[]>` of the [top 100 Imgflip memes](https://api.imgflip.com).
+Returns a `Promise<object[]>` of the
+[top 100 Imgflip memes](https://api.imgflip.com).
 
 #### `meme(id, options)`
 
@@ -110,8 +123,17 @@ The maximum font size of the image captions in pixels.
 Type: `string | undefined`\
 Default: `undefined`
 
-An optional path to download the captioned image to in addition to returning the image URL.
+An optional path to download the captioned image to in addition to returning the
+image URL.
+
+## Contributing
+
+Stars are always welcome!
+
+For bugs and feature requests,
+[please create an issue](https://github.com/TomerAberbach/imgflip/issues/new).
 
 ## License
 
-[MIT](https://github.com/TomerAberbach/imgflip/blob/main/license) © [Tomer Aberbach](https://github.com/TomerAberbach)
+[MIT](https://github.com/TomerAberbach/imgflip/blob/main/license) ©
+[Tomer Aberbach](https://github.com/TomerAberbach)
