@@ -15,7 +15,7 @@ export type MemeFormat = {
 type BaseMemeOptions = {
   captions: Array<string>
   font?: 'impact' | 'arial'
-  maxFontSize?: string
+  maxFontSize?: number
 }
 
 /**
