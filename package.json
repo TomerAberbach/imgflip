@@ -59,7 +59,7 @@
     "commit-msg": "pnpx --no-install commitlint -e"
   },
   "dependencies": {
-    "got": "11.8.2"
+    "got": "11.8.5"
   },
   "devDependencies": {
     "@commitlint/cli": "12.1.4",
