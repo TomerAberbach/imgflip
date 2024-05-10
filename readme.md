@@ -15,12 +15,6 @@
   The memiest Imgflip API wrapper around!
 </div>
 
-## Features
-
-- **Wow:** so amazing
-- **Amazing:** so wow
-- **Fancy:** has a tie and everything
-
 ## Install
 
 ```sh
