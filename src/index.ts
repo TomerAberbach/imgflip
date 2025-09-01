@@ -51,10 +51,8 @@ class Imgflip {
       maxFontSize,
       ...rest
     }: BaseMemeOptions | DownloadMemeOptions,
-    // eslint-disable-next-line typescript/no-invalid-void-type
   ): Promise<string | void> {
     const searchParams: Record<string, unknown> = {
-      // eslint-disable-next-line camelcase
       template_id: id,
       username: this.#username,
       password: this.#password,
@@ -68,7 +66,6 @@ class Imgflip {
     }
 
     if (maxFontSize != null) {
-      // eslint-disable-next-line camelcase
       searchParams.max_font_size = maxFontSize
     }
 
@@ -120,7 +117,7 @@ export type MemeFormat = {
 /** Options for filling in and rendering a meme format. */
 export type BaseMemeOptions = {
   captions: string[]
-  font?: 'impact' | 'arial'
+  font?: `impact` | `arial`
   maxFontSize?: number
 }
 
